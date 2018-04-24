@@ -1,0 +1,70 @@
+<table id="survey"></table>
+
+<!-- 工具栏 -->
+<div id="survey_tool" style="padding:5px;">
+	<div style="margin-bottom:5px;">
+		<a href="#" class="easyui-linkbutton" iconCls="icon-add-new" plain="true"
+			onclick="survey_tool.add();">新增</a> <a href="#" class="easyui-linkbutton" iconCls="icon-edit-new"
+			plain="true" onclick="survey_tool.edit();">修改</a><a href="#" class="easyui-linkbutton"
+			iconCls="icon-surveyscan" plain="true" onclick="survey_tool.scan();">详情</a> <a href="#"
+			class="easyui-linkbutton" iconCls="icon-delete-new" plain="true" onclick="survey_tool.remove();">删除</a>
+		<a href="#" class="easyui-linkbutton" iconCls="icon-reload" plain="true"
+			onclick="survey_tool.reload();">刷新</a> <a href="#" class="easyui-linkbutton" iconCls="icon-redo"
+			plain="true" onclick="survey_tool.redo();">取消选择</a>
+	</div>
+	<div style="padding:0 0 0 7px;color:#333;">
+		查询标题：<input type="text" class="textbox" name="title" style="width:110px"> 创建时间从：<input
+			type="text" name="date_from" class="easyui-datebox" editable="true" style="width:110px">
+		到：<input type="text" name="date_to" class="easyui-datebox" editable="true" style="width:110px">
+		<a href="#" class="easyui-linkbutton" iconCls="icon-search" onclick="survey_tool.search();">查询</a>
+	</div>
+</div>
+
+<!-- 添加问卷 -->
+<form id="survey_add" style="margin:0;padding:5px 0 0 25px;color:#333;">
+
+	<p>
+		问卷类型：<select class="textbox" style="width:307px" name="type_add";>
+			<option value="课程评价">课程评价</option>
+			<option value="教学评价">教学评价</option>
+			<option value="就业情况">就业情况</option>
+			<option value="其他方面">其他方面</option>
+		</select>
+	</p>
+	<p>
+		问卷标题：<input type="text" name="title_add" class="textbox" style="width:300px;">
+	</p>
+	<p>
+		问卷备注：<input type="text" name="description_add" class="textbox" style="width:300px;">
+	</p>
+	<p>
+		封面文件(可选)：<input type="file" name="cover_add" class="textbox" style="width:300px;">
+	</p>
+</form>
+
+<!-- 修改问卷 -->
+<form id="survey_edit" style="margin:0;padding:5px 0 0 25px;color:#333;">
+	<input type="hidden" name="id_edit" class="textbox" style="width:200px;">
+	<p>
+		问卷类型：<select class="textbox" style="width:307px" name="type_edit";>
+			<option value="课程评价">课程评价</option>
+			<option value="教学评价">教学评价</option>
+			<option value="就业情况">就业情况</option>
+			<option value="其他方面">其他方面</option>
+		</select>
+	</p>
+	<p>
+		问卷标题：<input type="text" name="title_edit" class="textbox" style="width:300px;">
+	</p>
+	<p>
+		问卷备注：<input type="text" name="description_edit" class="textbox" style="width:300px;">
+	</p>
+	<div style="border:2px solid #CCC ;width:300px">
+		当前封面：<br> <img src="../cover/default.jpg" id="cover"
+			style="height:90px;width:160px; padding:0 0 0 70px" />
+	</div>
+	<p>
+		封面文件(可选)：<input type="file" name="cover_edit" class="textbox" style="width:300px;">
+	</p>
+</form>
+<script type="text/javascript" src="../assets/js/surveymanage.js"></script>

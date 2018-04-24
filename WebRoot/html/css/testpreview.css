@@ -1,0 +1,89 @@
+@charset "utf-8";
+
+body {
+	font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei UI",
+		"Microsoft YaHei", SimHei, "\5B8B\4F53", simsun, sans-serif;
+	color: #666;
+	textalign: center;
+}
+
+p.p_servey_title {
+	font-size: 24px !important;
+	text-align: center;
+	font-weight: bold;
+	color: #f53d05;
+	font-weight: bold;
+}
+
+p.p_servey_description {
+	color: #555555;
+	letter-spacing: 1px;
+	line-height: 30px;
+	text-align: left;
+	font-size: 16px;
+	padding-bottom: 15px;
+	border-bottom: 1px dashed #ccc;
+	text-indent: 35px
+}
+
+div.div_question {
+	padding: 15px;
+	border-style: dashed;
+	border-width: 1px;
+	border-color: #ccc;
+}
+
+p {
+	height: auto;
+	letter-spacing: 2px;
+}
+
+div.type_ftb {
+	padding: 0 0 30px 0;
+}
+
+div.type_check {
+	padding: 20px 42px 20px 42px;
+}
+
+div.type_radio {
+	padding: 20px;
+}
+
+div.echarts_bar_div {
+	text-align: center;
+	height: 200px;
+	width: 700px;
+}
+
+div.echarts_bar_div_outer {
+	text-align: center;
+}
+
+select.datasource {
+	width: 60px;
+	height: 22px;
+	padding: 0 2px;
+	margin: 5px 5px;
+}
+
+div.select_outer {
+	text-align: right;
+	padding: 0 50px 20px 50px;
+}
+
+div.type_qa {
+	padding: 20px 50px 30px 30px;
+}
+
+sup {
+	font-weight: lighter;
+}
+
+input.ftb_input {
+	border-left-style: none;
+	border-right-style: none;
+	border-top-style: none;
+	width: 80px;
+	border-bottom: 1px solid #000
+}

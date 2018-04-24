@@ -1,0 +1,88 @@
+<table id="user"></table>
+
+<!-- 工具栏 -->
+<div id="user_tool" style="padding:5px;">
+	<div style="margin-bottom:5px;">
+		<a href="#" class="easyui-linkbutton" iconCls="icon-add-new" plain="true"
+			onclick="user_tool.add();">添加</a> <a href="#" class="easyui-linkbutton" iconCls="icon-edit-new"
+			plain="true" onclick="user_tool.edit();">修改</a> <a href="#" class="easyui-linkbutton"
+			iconCls="icon-import" plain="true" onclick="user_tool.importuser();">批量导入</a><a href="#"
+			class="easyui-linkbutton" iconCls="icon-delete-new" plain="true" onclick="user_tool.remove();">删除</a>
+		<a href="#" class="easyui-linkbutton" iconCls="icon-reload" plain="true"
+			onclick="user_tool.reload();">刷新</a> <a href="#" class="easyui-linkbutton" iconCls="icon-redo"
+			plain="true" onclick="user_tool.redo();">取消选择</a>
+	</div>
+	<div style="padding:0 0 0 7px;color:#333;">
+		查询用户：<input type="text" class="textbox" name="username" style="width:110px"> 注册时间从：<input
+			type="text" name="user_date_from" class="easyui-datebox" editable="true" style="width:110px">
+		到：<input type="text" name="user_date_to" class="easyui-datebox" editable="true"
+			style="width:110px"> <a href="#" class="easyui-linkbutton" iconCls="icon-search"
+			onclick="user_tool.search();">查询</a>
+	</div>
+</div>
+
+
+<!-- 导入用户 -->
+<form id="user_import" style="margin:0;padding:5px 0 0 25px;color:#333;">
+	<p style="height:50px"></p>
+	<p>
+		浏览：<input type="file" name="user_import" class="textbox" style="width:200px;">
+	</p>
+</form>
+<!-- 添加用户 -->
+<form id="user_add" style="margin:0;padding:5px 0 0 25px;color:#333;">
+
+	<p>
+		用户学号：<input type="text" name="studentid_add" class="textbox" style="width:200px;">
+	</p>
+	<p>
+		用户名称：<input type="text" name="name_add" class="textbox" style="width:200px;">
+	</p>
+	<p>
+		用户性别： <label><input name="sex_add" type="radio" value="男" checked />男</label> <label><input
+			name="sex_add" type="radio" value="女" />女</label>
+	</p>
+	<p>
+		用户密码：<input type="text" name="password_add" class="textbox" style="width:200px;">
+	</p>
+	<p>
+		分配权限：<input id="auth_add" class="easyui-textbox" data-options="multiline:true" name="auth_add"
+			style="width:205px;height:38px;">
+	</p>
+	<p>
+		用户电话：<input type="text" name="tel_add" class="textbox" style="width:200px;">
+	</p>
+	<p>
+		用户邮箱：<input type="text" name="email_add" class="textbox" style="width:200px;">
+	</p>
+</form>
+
+<!-- 修改问卷 -->
+<form id="user_edit" style="margin:0;padding:5px 0 0 25px;color:#333;">
+	<input type="hidden" name="user_id_edit" class="textbox" style="width:200px;">
+	<p>
+		用户学号：<input type="text" disabled="disabled" name="studentid_edit" class="textbox"
+			style="width:200px;">
+	</p>
+	<p>
+		用户名称：<input type="text" name="name_edit" class="textbox" style="width:200px;">
+	</p>
+	<p>
+		用户性别：<label><input name="sex_edit" type="radio" value="男" checked />男</label> <label><input
+			name="sex_edit" type="radio" value="女" />女</label>
+	</p>
+	<p>
+		用户密码：<input type="text" name="password_edit" class="textbox" style="width:200px;">
+	</p>
+	<p>
+		分配权限：<input id="auth_edit" class="easyui-textbox" data-options="multiline:true" name="auth_edit"
+			style="width:205px;height:38px;">
+	</p>
+	<p>
+		用户电话：<input type="text" name="tel_edit" class="textbox" style="width:200px;">
+	</p>
+	<p>
+		用户邮箱：<input type="text" name="email_edit" class="textbox" style="width:200px;">
+	</p>
+</form>
+<script type="text/javascript" src="../assets/js/usermanage.js"></script>

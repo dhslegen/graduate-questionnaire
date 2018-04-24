@@ -1,0 +1,80 @@
+p {
+	height: 22px;
+	line-height: 22px;
+	padding: 4px 0 0 25px;
+}
+
+.textbox {
+	height: 22px;
+	padding: 0 2px;
+}
+
+#btn {
+	text-align: center;
+}
+
+.easyui-linkbutton {
+	padding: 0 10px;
+}
+
+.css_survey_title {
+	text-align: center;
+}
+
+.css_survey_description {
+	text-align: center;
+}
+
+.css_survey_question {
+	padding: 10px;
+	border: 1px solid black;
+}
+
+.input_question_type {
+	margin: 0 0 0 235px;
+	width: 50%;
+	display: inline;
+}
+
+.question_delete {
+	margin: 0 0 0 218px;
+	width: 50%;
+	display: inline;
+}
+
+.interval_space {
+	height: 20px;
+}
+
+.input_question_title {
+	margin: 0 0 0 235px;
+	width: 50%;
+	display: inline;
+}
+
+.input_question_description {
+	margin: 10px 50px;
+	width: 50%;
+	display: inline;
+}
+
+.question_option_opt {
+	margin: 0 0 0 295px;
+	display: none;
+}
+
+.input_question_opA, .input_question_opB, .input_question_opC,
+	.input_question_opD, .input_question_opE, .input_question_opF,
+	.input_question_opG, .input_question_opH, .input_question_opI {
+	display: none;
+}
+
+.input_question_opA, .input_question_opC, .input_question_opE,
+	.input_question_opG, .input_question_opI {
+	margin: 0 0 0 235px;
+}
+
+.input_question_opB, .input_question_opD, .input_question_opF,
+	.input_question_opH {
+	margin: 0 0 0 50px;
+}

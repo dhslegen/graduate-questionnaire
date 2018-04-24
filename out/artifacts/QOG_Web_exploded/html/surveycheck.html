@@ -1,0 +1,21 @@
+<table id="surveycheck"></table>
+
+<!-- 工具栏 -->
+<div id="surveycheck_tool" style="padding:5px;">
+	<div style="margin-bottom:5px;">
+		<a href="#" class="easyui-linkbutton" iconCls="icon-survey-tool-unable" plain="true"
+			onclick="surveycheck_tool.unable();">禁用问卷</a> <a href="#" class="easyui-linkbutton"
+			iconCls="icon-survey-tool-enable" plain="true" onclick="surveycheck_tool.enable();">启用问卷</a> <a
+			href="#" class="easyui-linkbutton" iconCls="icon-reload" plain="true"
+			onclick="surveycheck_tool.reload();">刷新</a> <a href="#" class="easyui-linkbutton"
+			iconCls="icon-redo" plain="true" onclick="surveycheck_tool.redo();">取消选择</a>
+	</div>
+	<div style="padding:0 0 0 7px;color:#333;">
+		查询标题：<input type="text" class="textbox" name="survey_check_title" style="width:110px">
+		创建时间从：<input type="text" name="survey_check_date_from" class="easyui-datebox" editable="true"
+			style="width:110px"> 到：<input type="text" name="survey_check_date_to"
+			class="easyui-datebox" editable="true" style="width:110px"> <a href="#"
+			class="easyui-linkbutton" iconCls="icon-search" onclick="surveycheck_tool.search();">查询</a>
+	</div>
+</div>
+<script type="text/javascript" src="../assets/js/surveycheck.js"></script>

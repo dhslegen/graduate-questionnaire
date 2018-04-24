@@ -1,0 +1,22 @@
+<table id="surveypublish"></table>
+
+<!-- 工具栏 -->
+<div id="surveypublish_tool" style="padding:5px;">
+	<div style="margin-bottom:5px;">
+		<a href="#" class="easyui-linkbutton" iconCls="icon-surveygo" plain="true"
+			onclick="surveypublish_tool.publish();">发布问卷</a> <a href="#" class="easyui-linkbutton"
+			iconCls="icon-surveyback" plain="true" onclick="surveypublish_tool.recycle();">回收问卷</a> <a
+			href="#" class="easyui-linkbutton" iconCls="icon-surveyreset" plain="true"
+			onclick="surveypublish_tool.reset();">重置问卷</a> <a href="#" class="easyui-linkbutton"
+			iconCls="icon-reload" plain="true" onclick="surveypublish_tool.reload();">刷新</a> <a href="#"
+			class="easyui-linkbutton" iconCls="icon-redo" plain="true" onclick="surveypublish_tool.redo();">取消选择</a>
+	</div>
+	<div style="padding:0 0 0 7px;color:#333;">
+		查询标题：<input type="text" class="textbox" name="survey_publish_title" style="width:110px">
+		创建时间从：<input type="text" name="survey_publish_date_from" class="easyui-datebox" editable="true"
+			style="width:110px"> 到：<input type="text" name="survey_publish_date_to" class="easyui-datebox"
+			editable="true" style="width:110px"> <a href="#"
+			class="easyui-linkbutton" iconCls="icon-search" onclick="surveypublish_tool.search();">查询</a>
+	</div>
+</div>
+<script type="text/javascript" src="../assets/js/surveypublish.js"></script>

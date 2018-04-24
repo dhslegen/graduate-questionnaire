@@ -1,0 +1,24 @@
+<table id="surveydesign"></table>
+
+<!-- 工具栏 -->
+<div id="surveydesign_tool" style="padding:5px;">
+	<div style="margin-bottom:5px;">
+		&nbsp&nbsp&nbsp <a href="#" class="easyui-linkbutton"
+			iconCls="icon-survey-tool-design" plain="true"
+			onclick="surveydesign_tool.design();">设计问卷</a> <a href="#"
+			class="easyui-linkbutton" iconCls="icon-reload" plain="true"
+			onclick="surveydesign_tool.reload();">刷新</a> <a href="#"
+			class="easyui-linkbutton" iconCls="icon-redo" plain="true"
+			onclick="surveydesign_tool.redo();">取消选择</a>
+	</div>
+	<div style="padding:0 0 0 7px;color:#333;">
+		查询标题：<input type="text" class="textbox" name="survey_design_title"
+			style="width:110px"> 创建时间从：<input type="text"
+			name="survey_design_date_from" class="easyui-datebox" editable="true"
+			style="width:110px"> 到：<input type="text"
+			name="survey_design_date_to" class="easyui-datebox" editable="true"
+			style="width:110px"> <a href="#" class="easyui-linkbutton"
+			iconCls="icon-search" onclick="surveydesign_tool.search();">查询</a>
+	</div>
+</div>
+<script type="text/javascript" src="../assets/js/surveydesign.js"></script>

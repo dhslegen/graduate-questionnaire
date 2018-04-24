@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+<title>毕业生问卷调查网</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<a href="index.html" class="navbar-brand logo"><img style="display:'inline'"
+					src="img/logo.png" alt="毕业生问卷调查网"></a>
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#navbar-collapse">
+					<span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="index.html"><span class="glyphicon glyphicon-home"></span> 首页</a></li>
+					<li><a href="surveycenter.html"><span class="glyphicon glyphicon-list"></span> 问卷中心</a></li>
+					<li><a class="manage_center_flg" href="usercenter.html"><span
+							class="glyphicon glyphicon-user"></span> 个人中心</a></li>
+					<li id="place"><a id="user_place" href="#" data-toggle="modal" data-dismiss="modal"
+						data-target="#login"><span class="glyphicon glyphicon-log-in"></span> 登录</a></li>
+					<li><a class="manage_center_flg" href="backstage.html" target="_blank"><span
+							class="glyphicon glyphicon-th-large"></span> 问卷管理</a></li>
+					<li class="active"><a href="about.html"><span
+							class="glyphicon glyphicon-question-sign"></span> 关于</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<!-- 注册窗口 -->
+	<div id="register" class="modal fade" tabindex="-1" data-backdrop="static" data-keyboard="false">
+		<div class="modal-dialog" style="width:400px">
+			<div class="modal-content">
+				<div class="modal-body">
+					<button class="close" data-dismiss="modal">
+						<span>&times;</span>
+					</button>
+				</div>
+				<div class="modal-title">
+					<h1 class="text-center">修改个人信息</h1>
+				</div>
+				<div class="modal-body">
+					<form id="register_form" class="form-group" action="">
+						<div class="form-group">
+							<label for="">新的用户名</label> <input id="user_name" name="user_name" class="form-control"
+								type="text" placeholder="6-15位字母或数字">
+						</div>
+						<div class="form-group">
+							<label for="">新的密码</label> <input id="user_pwd" name="user_pwd" class="form-control"
+								type="password" placeholder="至少6位字母或数字">
+						</div>
+						<div class="form-group">
+							<label for="">再次输入密码</label> <input id="user_pwd1" name="user_pwd1" class="form-control"
+								type="password" placeholder="至少6位字母或数字">
+						</div>
+						<!-- <div class="form-group">
+							<label for="">邮箱</label> <input id="user_email" name="user_email" class="form-control"
+								type="email" placeholder="例如:123@123.com">
+						</div> -->
+						<div class="text-right">
+							<button class="btn btn-primary" type="submit">提交</button>
+							<button class="btn btn-danger" data-dismiss="modal">取消</button>
+						</div>
+						<!-- <a href="" data-toggle="modal" data-dismiss="modal" data-target="#login">已有账号？点我登录</a> -->
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 登录窗口 -->
+	<div id="login" class="modal fade" data-backdrop="static" data-keyboard="false">
+		<div class="modal-dialog" style="width:400px">
+			<div class="modal-content">
+				<div class="modal-body">
+					<button class="close" data-dismiss="modal">
+						<span>&times;</span>
+					</button>
+				</div>
+				<div class="modal-title">
+					<h1 class="text-center">登录</h1>
+				</div>
+				<div class="modal-body">
+					<form id="login_form" class="form-group" action="">
+						<div class="form-group">
+							<label for="">用户名</label> <input id='login_name' name='login_name' class="form-control"
+								type="text" placeholder="">
+						</div>
+						<div class="form-group">
+							<label for="">密码</label> <input id='login_pwd' name='login_pwd' class="form-control"
+								type="password" placeholder="">
+						</div>
+						<div class="text-right">
+							<button class="btn btn-primary" type="submit">登录</button>
+							<button class="btn btn-danger" data-dismiss="modal">取消</button>
+						</div>
+						<!-- <a href="" data-toggle="modal" data-dismiss="modal" data-target="#register">还没有账号？点我注册</a> -->
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div style="height:100px"></div>
+
+	<div id="about">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3 hidden-sm hidden-xs">
+					<div class="list-group">
+						<a class="list-group-item" href="#1">1.网站介绍</a> <a class="list-group-item" href="#2">2.网站功能</a>
+						<a class="list-group-item" href="#3">3.联系方式</a>
+					</div>
+				</div>
+				<div class="col-md-9 about">
+					<a name="1"></a>
+					<h3>网站介绍</h3>
+					<p>通过问卷调查收集毕业生对课程设置、教学安排、就业状况等方面的意见和建议，有助于学校了解毕业生的就业状况和职业发展状况，发现教学工作中存在的问题，更好地开展教学成果与质量分析，为提升人才培养水平制定有针对性的措施提供依据。利用本系统毕业生可以很方便的在网上参与问卷调查活动，管理员可以根据需要面向学生发布不同的问卷，并进行各种统计分析。</p>
+					<a name="2"></a>
+					<h3>网站功能</h3>
+					<p>毕业生可以登陆前端接受问卷调查，问卷调查提交后数据存储于后台数据库。后台管理用户则可以在登录后进行问卷设计、问卷管理，并对问卷调查的数据进行分析。前台用户端包括问卷中心、模板管理、查看&下载等基本功能，能实现公开问卷、热门测评等，同时还应有帮助中心、联系我们等辅助功能;后台管理端包括用户管理、问卷管理、系统管理，实现对用户身份及其基本信息、登录控制权限，问卷回收、存储、分析等功能。</p>
+					<p>请发送您的意见或建议到：2451222478@qq.com.com，我们会在第一时间联系您！</p>
+					<a name="3"></a>
+					<h3>联系方式</h3>
+					<p>地址：天津市宾水西道391号天津理工大学</p>
+					<p>邮编：1234567</p>
+					<p>电话：010-88888888</p>
+					<p>传真：010-88666666</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<footer id="footer">
+		<div class="container">
+			<p>版权投诉</p>
+			<p>© 2009-2016 毕业生在线调查问卷网. Powered by Bootstrap.</p>
+		</div>
+	</footer>
+
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="../assets/js/jquery.validate.js"></script>
+	<script src="../assets/js/bootbox.js"></script>
+	<script src="js/about.js"></script>
+</body>
+</html>
