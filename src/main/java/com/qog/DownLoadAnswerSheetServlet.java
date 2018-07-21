@@ -63,7 +63,7 @@ public class DownLoadAnswerSheetServlet extends HttpServlet {
 			stitle = "问卷标题：  " + (String) map.get("surveytitle");
 			sdescription = "问卷描述：  " + (String) map.get("surveydescription");
 			fsanswertime = ((Timestamp) map.get("answertime")).toString();
-			sanswertime = "答题时间  ：" + ((Timestamp) map.get("answertime")).toString();
+			sanswertime = "答题时间：  " + ((Timestamp) map.get("answertime")).toString();
 			String question = map.get("number") + "." + (String) map.get("title");
 			if (((String) map.get("type")).equals("单选") || ((String) map.get("type")).equals("多选")) {
 

@@ -1,8 +1,7 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="QOG:Web exploded">
-    <output-path>D:/apache-tomcat-8.5.11/webapps/QOG</output-path>
+    <output-path>E:/apache-tomcat-8.5.29/webapps/QOG</output-path>
     <root id="root">
-      <element id="javaee-facet-resources" facet="QOG/web/Web" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="QOG" />
@@ -11,6 +10,7 @@
           <element id="library" level="project" name="lib" />
         </element>
       </element>
+      <element id="javaee-facet-resources" facet="QOG/web/Web" />
     </root>
   </artifact>
 </component>
