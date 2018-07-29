@@ -1,19 +1,15 @@
-package com.qog;
+package com.qog.service;
+
+import com.qog.util.Service;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.springframework.jdbc.core.JdbcTemplate;
-
-import com.qog.util.Constant;
-import com.qog.util.Service;
-import com.qog.util.WebUtil;
-
-import model.*;
-
+@SuppressWarnings("unused")
 public class NavService implements Service {
 	private static final Log logger = LogFactory.getLog(NavService.class);
 	private JdbcTemplate jdao;
@@ -30,14 +26,15 @@ public class NavService implements Service {
 	 */
 	public List<Map<String, Object>> findNodeByNidAndAuth(String id, String auth) {
 		String[] arrayString = auth.split(",");
-		auth = "";
+		StringBuilder authBuilder = new StringBuilder();
 		for (int i = 0; i < arrayString.length; i++) {
 			if (i == arrayString.length - 1) {
-				auth = auth + "'" + arrayString[i] + "'";
+				authBuilder.append("'").append(arrayString[i]).append("'");
 			} else {
-				auth = auth + "'" + arrayString[i] + "',";
+				authBuilder.append("'").append(arrayString[i]).append("',");
 			}
 		}
+		auth = authBuilder.toString();
 		return jdao.queryForList("SELECT id,text,state,iconCls,url FROM navbar WHERE nid=" + id
 				+ " AND text IN (" + auth + ")");
 
@@ -57,7 +54,7 @@ public class NavService implements Service {
 	 */
 	@SuppressWarnings("null")
 	public List<Map<String, Object>> findNodeByAuth(String auth) {
-		List<Map<String, Object>> lObjects = new LinkedList<Map<String, Object>>();
+		List<Map<String, Object>> lObjects = new LinkedList<>();
 		if (auth.contains("问卷管理") || auth.contains("问卷审核")) {
 			lObjects.add(jdao.queryForMap("SELECT id,text,state,iconCls,url FROM navbar WHERE id="
 					+ "1" + ""));

@@ -5,7 +5,7 @@ public class NopEncryptor implements Encryptor {
 	public NopEncryptor() {
 	}
 
-	public String encrypt(String clearText) throws Exception {
+	public String encrypt(String clearText) {
 		return clearText;
 	}
 

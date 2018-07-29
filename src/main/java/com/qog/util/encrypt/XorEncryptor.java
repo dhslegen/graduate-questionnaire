@@ -7,7 +7,7 @@ public class XorEncryptor implements Encryptor {
 	public XorEncryptor() {
 	}
 
-	public String encrypt(String clearText) throws Exception {
+	public String encrypt(String clearText) {
 		if (clearText == null)
 			return null;
 		byte[] buffer = clearText.getBytes();

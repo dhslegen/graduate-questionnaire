@@ -3,8 +3,6 @@ package com.qog.util;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 
-import com.qog.util.BytesUtil;
-
 public class DESede {
 	private byte[] KEY = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 			0, 0, 0, 0, 0, 0, 0 };

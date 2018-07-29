@@ -7,7 +7,7 @@ public class MD5Encryptor implements Encryptor {
 	public MD5Encryptor() {
 	}
 
-	public String encrypt(String clearText) throws Exception {
+	public String encrypt(String clearText) {
 		if (clearText == null)
 			return null;
 		return MD5.getMD5Code(clearText);

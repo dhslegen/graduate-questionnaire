@@ -4,7 +4,6 @@ import it.sauronsoftware.jave.AudioAttributes;
 import it.sauronsoftware.jave.Encoder;
 import it.sauronsoftware.jave.EncoderException;
 import it.sauronsoftware.jave.EncodingAttributes;
-import it.sauronsoftware.jave.InputFormatException;
 
 import java.io.File;
 
@@ -12,8 +11,8 @@ public class Audio {
 
 	// filename必须得是wav格式，转换成mp3格式
 	public static String transcode(String filename)
-			throws IllegalArgumentException, InputFormatException,
-			EncoderException {
+			throws IllegalArgumentException,
+            EncoderException {
 		File source = new File(filename);
 		String r = filename.substring(0, filename.lastIndexOf('.') + 1) + "mp3";
 		File target = new File(r);

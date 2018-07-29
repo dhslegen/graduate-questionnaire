@@ -1,29 +1,22 @@
 package com.qog;
 
-import java.io.ByteArrayInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.sql.Timestamp;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletException;
-import javax.servlet.ServletInputStream;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
+import com.qog.service.AnswerService;
+import com.qog.util.WebUtil;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
-import com.qog.util.Constant;
-import com.qog.util.DESede;
-import com.qog.util.WebUtil;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.nio.charset.StandardCharsets;
+import java.util.List;
+import java.util.Map;
 
 public class DownLoadAnswerSheetServlet extends HttpServlet {
 	private AnswerService answerService;
@@ -60,12 +53,12 @@ public class DownLoadAnswerSheetServlet extends HttpServlet {
 		for (Map<String, Object> map : ret) {
 			String answer = "您的答案:  ";
 			fstitle = (String) map.get("surveytitle");
-			stitle = "问卷标题：  " + (String) map.get("surveytitle");
-			sdescription = "问卷描述：  " + (String) map.get("surveydescription");
-			fsanswertime = ((Timestamp) map.get("answertime")).toString();
-			sanswertime = "答题时间：  " + ((Timestamp) map.get("answertime")).toString();
-			String question = map.get("number") + "." + (String) map.get("title");
-			if (((String) map.get("type")).equals("单选") || ((String) map.get("type")).equals("多选")) {
+			stitle = "问卷标题：  " + map.get("surveytitle");
+			sdescription = "问卷描述：  " + map.get("surveydescription");
+			fsanswertime = map.get("answertime").toString();
+			sanswertime = "答题时间：  " + map.get("answertime").toString();
+			String question = map.get("number") + "." + map.get("title");
+			if (map.get("type").equals("单选") || map.get("type").equals("多选")) {
 
 				String[] strings = ((String) map.get("content")).split(",");
 				for (int i = 0; i < strings.length; i++) {
@@ -76,7 +69,7 @@ public class DownLoadAnswerSheetServlet extends HttpServlet {
 					}
 				}
 			} else {
-				answer = answer + (String) map.get("content");
+				answer = answer + map.get("content");
 			}
 			src = src + "\r\n" + question + "\r\n" + answer + "\r\n";
 		}
@@ -87,7 +80,7 @@ public class DownLoadAnswerSheetServlet extends HttpServlet {
 		response.setHeader("Content-Disposition", "attachment;filename=" + filename);
 		// 读取文件
 		OutputStream out = response.getOutputStream();
-		InputStream in = new ByteArrayInputStream(src.getBytes("utf-8"));
+		InputStream in = new ByteArrayInputStream(src.getBytes(StandardCharsets.UTF_8));
 		// 写文件
 		int b;
 		while ((b = in.read()) != -1) {
@@ -115,7 +108,7 @@ public class DownLoadAnswerSheetServlet extends HttpServlet {
 		response.setHeader("Content-Disposition", "attachment;filename=" + filename);
 		// 读取文件
 		OutputStream out = response.getOutputStream();
-		InputStream in = new ByteArrayInputStream(src.getBytes("utf-8"));
+		InputStream in = new ByteArrayInputStream(src.getBytes(StandardCharsets.UTF_8));
 		// 写文件
 		int b;
 		while ((b = in.read()) != -1) {

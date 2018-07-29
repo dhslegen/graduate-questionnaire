@@ -117,7 +117,7 @@ public class GUID implements Serializable {
 		return new GUID(high, low);
 	}
 
-	public static GUID read(String id) throws Exception {
+	public static GUID read(String id) {
 		String part = id.substring(0, 8);
 		long high = 0L;
 		high = Long.parseLong(part, 16) << 32;

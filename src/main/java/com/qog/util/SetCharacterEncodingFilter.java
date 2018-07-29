@@ -1,14 +1,8 @@
 package com.qog.util;
 
+import javax.servlet.*;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-
-import javax.servlet.Filter;
-import javax.servlet.FilterChain;
-import javax.servlet.FilterConfig;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
 
 public class SetCharacterEncodingFilter implements Filter {
 	// Process the request/response pair

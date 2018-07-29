@@ -1,9 +1,9 @@
 package com.qog;
 
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import com.qog.service.NavService;
+import com.qog.util.WebUtil;
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -11,13 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import org.springframework.web.context.WebApplicationContext;
-import org.springframework.web.context.support.WebApplicationContextUtils;
-
-import com.qog.util.Constant;
-import com.qog.util.DESede;
-import com.qog.util.WebUtil;
+import java.io.IOException;
 
 public class NavMadeServlet extends HttpServlet {
 	private NavService navService;

@@ -14,10 +14,8 @@ public class DES {
 	 * @param bytes
 	 *            需要转换的byte数组
 	 * @return 转换后的字符串
-	 * @throws Exception
-	 *             本方法不处理任何异常，所有异常全部抛出
-	 */
-	private String byteArray2HexString(byte[] bytes) throws Exception {
+     */
+	private String byteArray2HexString(byte[] bytes) {
 		int iLen = bytes.length;
 		// 每个byte用两个字符才能表示，所以字符串的长度是数组长度的两倍
 		StringBuffer sb = new StringBuffer(iLen * 2);
@@ -41,10 +39,8 @@ public class DES {
 	 * @param s
 	 *            需要转换的字符串
 	 * @return 转换后的byte数组
-	 * @throws Exception
-	 *             本方法不处理任何异常，所有异常全部抛出
-	 */
-	private byte[] hexString2ByteArray(String s) throws Exception {
+     */
+	private byte[] hexString2ByteArray(String s) {
 		byte[] arrB = s.getBytes();
 		int iLen = arrB.length;
 		// 两个字符表示一个字节，所以字节数组长度是字符串长度除以2

@@ -1,5 +1,11 @@
 package com.qog.util;
 
+import com.google.gson.GsonBuilder;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -7,14 +13,6 @@ import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
-import com.google.gson.GsonBuilder;
 
 public class WebUtil {
 	private static final Log logger = LogFactory.getLog(WebUtil.class);
@@ -37,9 +35,9 @@ public class WebUtil {
 		if (v == null || v.length() == 0)
 			s = "(1=1)";
 		else if (like)
-			s = "(" + name + " like '%" + v + "%')";
+			s = "(`" + name + "` like '%" + v + "%')";
 		else
-			s = "(" + name + "='" + v + "')";
+			s = "(`" + name + "`='" + v + "')";
 		if (logger.isDebugEnabled())
 			logger.debug("[" + WebUtil.class.getCanonicalName() + "] condition=" + s);
 		return s;

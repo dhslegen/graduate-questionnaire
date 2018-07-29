@@ -1,8 +1,8 @@
 package com.qog.util;
 
-import java.util.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class DateUtil {
 
