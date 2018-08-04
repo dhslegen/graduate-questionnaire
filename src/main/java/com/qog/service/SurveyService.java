@@ -64,7 +64,7 @@ public class SurveyService implements Service {
      */
     private boolean hasDuplicate(int number, int surveyid) {
         String tb_questions = "(SELECT * FROM question WHERE surveyid=" + surveyid + ") AS tb_questions";
-        return jdao.queryForObject("SELECT COUNT(*) FROM " + tb_questions + " WHERE number = " + number, Integer.class) > 0;
+        return jdao.queryForObject("SELECT COUNT(*) FROM " + tb_questions + " WHERE `number` = " + number, Integer.class) > 0;
     }
 
     /**
@@ -73,7 +73,7 @@ public class SurveyService implements Service {
 
     public int insertAndReturnID(String title, String description, String image, String type, int userid) {
         KeyHolder keyHolder = new GeneratedKeyHolder();
-        String strSql = "insert into survey(title,description,createtime,isable,image,userid,type) values(?,?,NOW(),?,?,?,?)";
+        String strSql = "insert into survey(title,description,createtime,isable,image,userid,`type`) values(?,?,NOW(),?,?,?,?)";
         if (!hasDuplicate(title)) {
             jdao.update(conn -> {
                 String isable = "启用";
@@ -102,7 +102,7 @@ public class SurveyService implements Service {
 
     public int insertSurveyAndQuestions(String title, String description, String image, String type, int userid, String savestring) {
         KeyHolder keyHolder = new GeneratedKeyHolder();
-        String strSql = "insert into survey(title,description,createtime,isable,image,userid,type,publish) values(?,?,NOW(),?,?,?,?,'可编辑')";
+        String strSql = "insert into survey(title,description,createtime,isable,image,userid,`type`,publish) values(?,?,NOW(),?,?,?,?,'可编辑')";
 
         // 执行事务
         return jtx.execute(status -> {
@@ -131,7 +131,7 @@ public class SurveyService implements Service {
                     String sqlsString;
                     int number = ques.getNumber();
                     if (hasDuplicate(number, surveyid)) {
-                        sqlsString = "UPDATE question SET title=?,description=?,type=?,surveyid=?,number=?,opA=?,opB=?,opC=?,opD=?,opE=?,opF=?,opG=?,opH=?,opI=? WHERE surveyid=? AND number=?";
+                        sqlsString = "UPDATE question SET title=?,description=?,`type`=?,surveyid=?,`number`=?,opA=?,opB=?,opC=?,opD=?,opE=?,opF=?,opG=?,opH=?,opI=? WHERE surveyid=? AND `number`=?";
                         jdao.update(conn -> {
                             int i = 0;
                             java.sql.PreparedStatement ps;
@@ -156,7 +156,7 @@ public class SurveyService implements Service {
                         });
                     } else {
                         KeyHolder keyHolder1 = new GeneratedKeyHolder();
-                        sqlsString = "INSERT INTO question(title,description,type,surveyid,number,opA,opB,opC,opD,opE,opF,opG,opH,opI) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                        sqlsString = "INSERT INTO question(title,description,`type`,surveyid,`number`,opA,opB,opC,opD,opE,opF,opG,opH,opI) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
                         jdao.update(conn -> {
                             int i = 0;
                             java.sql.PreparedStatement ps;
@@ -180,7 +180,7 @@ public class SurveyService implements Service {
 
                     }
                 }
-                jdao.update("DELETE FROM question WHERE surveyid=" + surveyid + " AND number>" + retList.size());
+                jdao.update("DELETE FROM question WHERE surveyid=" + surveyid + " AND `number`>" + retList.size());
 
                 return Constant.STATUS_CODE_SUCCESS;
             } catch (Exception e) {
@@ -203,7 +203,7 @@ public class SurveyService implements Service {
             try {
                 String strSql;
                 if ("".equals(image)) {
-                    strSql = "UPDATE survey SET title=?,description=?,type=?,userid=?,createtime=NOW() WHERE id=?";
+                    strSql = "UPDATE survey SET title=?,description=?,`type`=?,userid=?,createtime=NOW() WHERE id=?";
 
                     jdao.update(conn -> {
                         int i = 0;
@@ -218,7 +218,7 @@ public class SurveyService implements Service {
                     });
 
                 } else {
-                    strSql = "UPDATE survey SET title=?,description=?,image=?,type=?,userid=? WHERE id=?";
+                    strSql = "UPDATE survey SET title=?,description=?,image=?,`type`=?,userid=? WHERE id=?";
                     if (!hasOtherDuplicate(title, surveyid)) {
                         jdao.update(conn -> {
                             int i = 0;
@@ -243,7 +243,7 @@ public class SurveyService implements Service {
                     String sqlsString;
                     int number = ques.getNumber();
                     if (hasDuplicate(number, surveyid)) {
-                        sqlsString = "UPDATE question SET title=?,description=?,type=?,surveyid=?,number=?,opA=?,opB=?,opC=?,opD=?,opE=?,opF=?,opG=?,opH=?,opI=? WHERE surveyid=? AND number=?";
+                        sqlsString = "UPDATE question SET title=?,description=?,`type`=?,surveyid=?,`number`=?,opA=?,opB=?,opC=?,opD=?,opE=?,opF=?,opG=?,opH=?,opI=? WHERE surveyid=? AND `number`=?";
                         jdao.update(conn -> {
                             int i = 0;
                             java.sql.PreparedStatement ps;
@@ -268,7 +268,7 @@ public class SurveyService implements Service {
                         });
                     } else {
                         KeyHolder keyHolder = new GeneratedKeyHolder();
-                        sqlsString = "INSERT INTO question(title,description,type,surveyid,number,opA,opB,opC,opD,opE,opF,opG,opH,opI) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                        sqlsString = "INSERT INTO question(title,description,`type`,surveyid,`number`,opA,opB,opC,opD,opE,opF,opG,opH,opI) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
                         jdao.update(conn -> {
                             int i = 0;
                             java.sql.PreparedStatement ps;
@@ -292,7 +292,7 @@ public class SurveyService implements Service {
 
                     }
                 }
-                jdao.update("DELETE FROM question WHERE surveyid=" + surveyid + " AND number>" + retList.size());
+                jdao.update("DELETE FROM question WHERE surveyid=" + surveyid + " AND `number`>" + retList.size());
                 return Constant.STATUS_CODE_SUCCESS;
             } catch (Exception e) {
                 e.printStackTrace();
@@ -337,9 +337,9 @@ public class SurveyService implements Service {
             }
             if (date_to != null) {
                 if (title.equals("") && date_from.equals("")) {
-                    date_to = " WHERE DATEADD(DAY, -1, createtime) <='" + date_to + "'";
+                    date_to = " WHERE DATE_SUB(createtime,INTERVAL 1 DAY) <='" + date_to + "'";
                 } else {
-                    date_to = " AND DATEADD(DAY, -1, createtime) <='" + date_to + "'";
+                    date_to = " AND DATE_SUB(createtime,INTERVAL 1 DAY) <='" + date_to + "'";
                 }
             } else {
                 date_to = "";
@@ -409,7 +409,7 @@ public class SurveyService implements Service {
      */
     public int resetById(String ids) {
         String sql = "UPDATE survey SET publish='可编辑' , hit=0 WHERE id IN " + ids;
-        String sql1 = "DELETE answer WHERE surveyid IN " + ids;
+        String sql1 = "DELETE FROM answer WHERE surveyid IN " + ids;
         jdao.update(sql1);
         return jdao.update(sql);
     }
@@ -434,7 +434,7 @@ public class SurveyService implements Service {
      */
     public Map<String, Object> getSurveyById(String id) {
 
-        String sql = "SELECT id,type,title,description,image FROM survey WHERE id = " + id;
+        String sql = "SELECT id,`type`,title,description,image FROM survey WHERE id = " + id;
 
         try {
 
@@ -452,7 +452,7 @@ public class SurveyService implements Service {
      */
     public List<Map<String, Object>> getSurveyByHit() {
 
-        String sql = "SELECT hit,id,type,title,description,image FROM survey WHERE isable='启用' AND publish='已发布' ORDER BY hit DESC LIMIT 8";
+        String sql = "SELECT hit,id,`type`,title,description,image FROM survey WHERE isable='启用' AND publish='已发布' ORDER BY hit DESC LIMIT 8";
 
         try {
 
@@ -470,7 +470,7 @@ public class SurveyService implements Service {
      */
     public List<Map<String, Object>> getSurveyByTypeAndHit(String type) {
 
-        String sql = "SELECT createtime,hit,id,type,title,description,image FROM survey WHERE isable='启用' AND publish='已发布' AND type='" + type + "' ORDER BY hit DESC";
+        String sql = "SELECT createtime,hit,id,`type`,title,description,image FROM survey WHERE isable='启用' AND publish='已发布' AND `type`='" + type + "' ORDER BY hit DESC";
 
         try {
 
@@ -488,7 +488,7 @@ public class SurveyService implements Service {
      */
     public List<Map<String, Object>> getSurveyByCreatetime() {
 
-        String sql = "SELECT createtime,id,type,title,description,image FROM survey WHERE isable='启用' AND publish='已发布' ORDER BY createtime DESC LIMIT 8";
+        String sql = "SELECT createtime,id,`type`,title,description,image FROM survey WHERE isable='启用' AND publish='已发布' ORDER BY createtime DESC LIMIT 8";
 
         try {
 
@@ -506,7 +506,7 @@ public class SurveyService implements Service {
      */
     public List<Map<String, Object>> getSurveyByTypeAndCreatetime(String type) {
 
-        String sql = "SELECT createtime,id,type,title,description,image FROM survey WHERE isable='启用' AND publish='已发布' AND type='" + type + "' ORDER BY createtime DESC";
+        String sql = "SELECT createtime,id,`type`,title,description,image FROM survey WHERE isable='启用' AND publish='已发布' AND `type`='" + type + "' ORDER BY createtime DESC";
 
         try {
 
@@ -524,7 +524,7 @@ public class SurveyService implements Service {
      */
     public List<Map<String, Object>> getSurveyByKeyWord(String kword) {
 
-        String sql = "SELECT createtime,id,type,title,description,image FROM survey WHERE isable='启用' AND publish='已发布' AND title LIKE '%" + kword + "%' ORDER BY hit DESC";
+        String sql = "SELECT createtime,id,`type`,title,description,image FROM survey WHERE isable='启用' AND publish='已发布' AND title LIKE '%" + kword + "%' ORDER BY hit DESC";
 
         try {
 

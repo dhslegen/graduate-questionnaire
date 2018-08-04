@@ -34,7 +34,7 @@ public class QuestionService implements Service {
      */
     private boolean hasDuplicate(int number, int surveyid) {
         String tb_questions = "(SELECT * FROM question WHERE surveyid=" + surveyid + ") AS tb_questions";
-        return jdao.queryForObject("SELECT COUNT(*) FROM " + tb_questions + " WHERE number = " + number, Integer.class) > 0;
+        return jdao.queryForObject("SELECT COUNT(*) FROM " + tb_questions + " WHERE `number` = " + number, Integer.class) > 0;
     }
 
     /**
@@ -43,7 +43,7 @@ public class QuestionService implements Service {
 
     public int insertAndReturnID(String title, String description, String image, String type, int userid) {
         KeyHolder keyHolder = new GeneratedKeyHolder();
-        String strSql = "INSERT INTO survey(title,description,createtime,isable,image,userid,type) VALUES(?,?,NOW(),?,?,?,?)";
+        String strSql = "INSERT INTO survey(title,description,createtime,isable,image,userid,`type`) VALUES(?,?,NOW(),?,?,?,?)";
         if (!hasDuplicate(userid, userid)) {
             jdao.update(conn -> {
                 String isable = "启用";
@@ -73,7 +73,7 @@ public class QuestionService implements Service {
     public int updateAndReturnID(String title, String description, String image, String type, int userid, int id) {
         String strSql;
         if ("".equals(image)) {
-            strSql = "UPDATE survey SET title=?,description=?,type=?,userid=?,createtime=NOW() WHERE id=?";
+            strSql = "UPDATE survey SET title=?,description=?,`type`=?,userid=?,createtime=NOW() WHERE id=?";
 
             return jdao.update(conn -> {
                 int i = 0;
@@ -87,7 +87,7 @@ public class QuestionService implements Service {
                 return ps;
             });
         } else {
-            strSql = "UPDATE survey SET title=?,description=?,image=?,type=?,userid=?,createtime=NOW() WHERE id=?";
+            strSql = "UPDATE survey SET title=?,description=?,image=?,`type`=?,userid=?,createtime=NOW() WHERE id=?";
 
             return jdao.update(conn -> {
                 int i = 0;
@@ -139,9 +139,9 @@ public class QuestionService implements Service {
             }
             if (date_to != null) {
                 if (title.equals("") && date_from.equals("")) {
-                    date_to = " WHERE DATEADD(DAY, -1, createtime) <='" + date_to + "'";
+                    date_to = " WHERE DATE_SUB(createtime,INTERVAL 1 DAY) <='" + date_to + "'";
                 } else {
-                    date_to = " AND DATEADD(DAY, -1, createtime) <='" + date_to + "'";
+                    date_to = " AND DATE_SUB(createtime,INTERVAL 1 DAY) <='" + date_to + "'";
                 }
             } else {
                 date_to = "";
@@ -197,7 +197,7 @@ public class QuestionService implements Service {
      */
     public List<Map<String, Object>> getQuestionsBySurveyId(int surveyid) {
 
-        String sql = "SELECT * FROM question WHERE surveyid = " + surveyid + " ORDER BY number ASC ";
+        String sql = "SELECT * FROM question WHERE surveyid = " + surveyid + " ORDER BY `number` ASC ";
 
         try {
 
@@ -216,8 +216,8 @@ public class QuestionService implements Service {
      */
     public List<Map<String, Object>> getAnalysisBySurveyId(int surveyid) {
 
-        String sql = "SELECT question.type,question.title,question.opA,question.opB,question.opC,question.opD,question.opE,question.opF,question.opG,question.opH,question.opI,tb_hit.* FROM question INNER JOIN(SELECT surveyid,number,COUNT(*) hitT,COUNT(opA) hitA,COUNT(opB) hitB,COUNT(opC) hitC,COUNT(opD) hitD,COUNT(opE) hitE,COUNT(opF) hitF,COUNT(opG) hitG,COUNT(opH) hitH,COUNT(opI) hitI FROM (SELECT `user`.graduation graduation,`user`.studentid studentid,answer.* FROM (`user` INNER JOIN answer ON `user`.id=answer.userid)) AS tb_answer_user WHERE surveyid="
-                + surveyid + " GROUP BY surveyid,number) AS tb_hit ON question.surveyid=tb_hit.surveyid AND question.number=tb_hit.number  ORDER BY number ASC";
+        String sql = "SELECT question.type,question.title,question.opA,question.opB,question.opC,question.opD,question.opE,question.opF,question.opG,question.opH,question.opI,tb_hit.* FROM question INNER JOIN(SELECT surveyid,`number`,COUNT(*) hitT,COUNT(opA) hitA,COUNT(opB) hitB,COUNT(opC) hitC,COUNT(opD) hitD,COUNT(opE) hitE,COUNT(opF) hitF,COUNT(opG) hitG,COUNT(opH) hitH,COUNT(opI) hitI FROM (SELECT `user`.graduation graduation,`user`.studentid studentid,answer.* FROM (`user` INNER JOIN answer ON `user`.id=answer.userid)) AS tb_answer_user WHERE surveyid="
+                + surveyid + " GROUP BY surveyid,`number`) AS tb_hit ON question.surveyid=tb_hit.surveyid AND question.number=tb_hit.number  ORDER BY `number` ASC";
 
         try {
 
@@ -241,8 +241,8 @@ public class QuestionService implements Service {
             graduation = " AND graduation= " + graduation;
         }
 
-        String sql = "SELECT question.type,question.title,question.opA,question.opB,question.opC,question.opD,question.opE,question.opF,question.opG,question.opH,question.opI,tb_hit.* FROM question INNER JOIN(SELECT surveyid,number,COUNT(*) hitT,COUNT(opA) hitA,COUNT(opB) hitB,COUNT(opC) hitC,COUNT(opD) hitD,COUNT(opE) hitE,COUNT(opF) hitF,COUNT(opG) hitG,COUNT(opH) hitH,COUNT(opI) hitI FROM (SELECT `user`.graduation graduation,`user`.studentid studentid,answer.* FROM (`user` INNER JOIN answer ON `user`.id=answer.userid)) AS tb_answer_user WHERE surveyid="
-                + surveyid + " AND number=" + number + graduation + " GROUP BY surveyid,number) AS tb_hit ON question.surveyid=tb_hit.surveyid AND question.number=tb_hit.number  ORDER BY number ASC";
+        String sql = "SELECT question.type,question.title,question.opA,question.opB,question.opC,question.opD,question.opE,question.opF,question.opG,question.opH,question.opI,tb_hit.* FROM question INNER JOIN(SELECT surveyid,`number`,COUNT(*) hitT,COUNT(opA) hitA,COUNT(opB) hitB,COUNT(opC) hitC,COUNT(opD) hitD,COUNT(opE) hitE,COUNT(opF) hitF,COUNT(opG) hitG,COUNT(opH) hitH,COUNT(opI) hitI FROM (SELECT `user`.graduation graduation,`user`.studentid studentid,answer.* FROM (`user` INNER JOIN answer ON `user`.id=answer.userid)) AS tb_answer_user WHERE surveyid="
+                + surveyid + " AND `number`=" + number + graduation + " GROUP BY surveyid,`number`) AS tb_hit ON question.surveyid=tb_hit.surveyid AND question.number=tb_hit.number  ORDER BY `number` ASC";
 
         try {
 
@@ -291,7 +291,7 @@ public class QuestionService implements Service {
                         for (String string : opHitName) {
                             string = string.replace("op", "hit");
                             String setstr = string + "=" + string + "+1";
-                            String sql = "UPDATE question SET " + setstr + " WHERE surveyid=? AND number=?";
+                            String sql = "UPDATE question SET " + setstr + " WHERE surveyid=? AND `number`=?";
                             System.out.println("check拼接后的SQL：" + sql);
                             int affectrow = jdao.update(conn -> {
                                 int i = 0;
@@ -310,7 +310,7 @@ public class QuestionService implements Service {
                 if (!content.equals("")) {
                     content = content.replace("op", "hit");
                     String setstr = content + "=" + content + "+1";
-                    String sql = "UPDATE question SET " + setstr + " WHERE surveyid=? AND number=?";
+                    String sql = "UPDATE question SET " + setstr + " WHERE surveyid=? AND `number`=?";
                     System.out.println("radio拼接后的SQL：" + sql);
                     int affectrow = jdao.update(conn -> {
                         int i = 0;

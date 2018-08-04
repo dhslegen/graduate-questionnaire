@@ -113,9 +113,9 @@ public class AnswerService implements Service {
             }
             if (date_to != null) {
                 if (query_name.equals("") && date_from.equals("")) {
-                    date_to = " WHERE DATEADD(DAY, -1, answer.answertime) <='" + date_to + "'";
+                    date_to = " WHERE DATE_SUB(answer.answertime,INTERVAL 1 DAY) <='" + date_to + "'";
                 } else {
-                    date_to = " AND DATEADD(DAY, -1, answer.answertime) <='" + date_to + "'";
+                    date_to = " AND DATE_SUB(answer.answertime,INTERVAL 1 DAY) <='" + date_to + "'";
                 }
             } else {
                 date_to = "";

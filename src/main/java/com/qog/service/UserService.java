@@ -59,7 +59,7 @@ public class UserService implements Service {
 
     public int insertAndReturnID(String name, String sex, String password, String auth, String tel, String email, String studentid) {
         KeyHolder keyHolder = new GeneratedKeyHolder();
-        String strSql = "insert into `user`(name,sex,registertime,password,auth,tel,email,studentid,graduation) values(?,?,NOW(),?,?,?,?,?,?)";
+        String strSql = "insert into `user`(`name`,sex,registertime,password,auth,tel,email,studentid,graduation) values(?,?,NOW(),?,?,?,?,?,?)";
         if (hasNoDuplicateStudentid(studentid)) {
             if (!hasDuplicate(name)) {
                 jdao.update(conn -> {
@@ -98,13 +98,13 @@ public class UserService implements Service {
             try {
                 if (hasNoDuplicateStudentid(studentid)) {
                     // 不存在就添加
-                    String sql = "INSERT INTO `user` (studentid,name,password,registertime,tel,email,sex,graduation) VALUES(?,?,?,NOW(),?,?,?,?)";
+                    String sql = "INSERT INTO `user` (studentid,`name`,password,registertime,tel,email,sex,graduation) VALUES(?,?,?,NOW(),?,?,?,?)";
                     jdao.update(sql, user.getStudentid(), user.getName(), user.getPassword(), user.getTel(), user.getEmail(), user.getSex(),
                             Integer.toString(Integer.valueOf(user.getStudentid().substring(0, 4)) + 4));
                     result.append("第").append(i).append("条记录新增成功！");
                 } else {
                     // 存在就更新
-                    String sql = "UPDATE `user` SET name=?,password=?,registertime=NOW(),tel=?,email=?,sex=?,graduation=? WHERE studentid=?";
+                    String sql = "UPDATE `user` SET `name`=?,password=?,registertime=NOW(),tel=?,email=?,sex=?,graduation=? WHERE studentid=?";
                     jdao.update(sql, user.getName(), user.getPassword(), user.getTel(), user.getEmail(), user.getSex(), Integer.toString(Integer.valueOf(user.getStudentid().substring(0, 4)) + 4),
                             user.getStudentid());
                     result.append("第").append(i).append("条记录更新成功！");
@@ -124,7 +124,7 @@ public class UserService implements Service {
 
     public int updateUserInfo(String name, String password, int id) {
         int a;
-        String strSql = "UPDATE `user` SET name=?,password=? WHERE id=?";
+        String strSql = "UPDATE `user` SET `name`=?,password=? WHERE id=?";
         if (hasNoOtherDuplicate(name, id)) {
             a = jdao.update(conn -> {
                 int i = 0;
@@ -177,9 +177,9 @@ public class UserService implements Service {
             }
             if (date_to != null) {
                 if (username.equals("") && date_from.equals("")) {
-                    date_to = " WHERE DATEADD(DAY, -1, registertime) <='" + date_to + "'";
+                    date_to = " WHERE DATE_SUB(registertime,INTERVAL 1 DAY) <='" + date_to + "'";
                 } else {
-                    date_to = " AND DATEADD(DAY, -1, registertime) <='" + date_to + "'";
+                    date_to = " AND DATE_SUB(registertime,INTERVAL 1 DAY) <='" + date_to + "'";
                 }
             } else {
                 date_to = "";
@@ -217,7 +217,7 @@ public class UserService implements Service {
      */
     public Map<String, Object> getUserById(String id) {
 
-        String sql = "SELECT studentid,id,name,sex,password,auth,tel,email FROM `user` WHERE id = " + id;
+        String sql = "SELECT studentid,id,`name`,sex,password,auth,tel,email FROM `user` WHERE id = " + id;
 
         try {
 
@@ -237,7 +237,7 @@ public class UserService implements Service {
     public int updateAndReturnID(String name, String sex, String password, String auth, String tel, String email, int id) {
         String strSql;
 
-        strSql = "UPDATE `user` SET name=?,sex=?,password=?,auth=?,tel=?,email=? WHERE id=?";
+        strSql = "UPDATE `user` SET `name`=?,sex=?,password=?,auth=?,tel=?,email=? WHERE id=?";
         if (hasNoOtherDuplicate(name, id)) {
 
             return jdao.update(conn -> {
