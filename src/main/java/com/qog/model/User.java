@@ -1,4 +1,4 @@
-package model;
+package com.qog.model;
 
 // Generated 2017-4-12 1:40:09 by Hibernate Tools 5.2.1.Final
 

@@ -2,7 +2,7 @@ package com.qog.service;
 
 import com.qog.util.Constant;
 import com.qog.util.Service;
-import model.Answer;
+import com.qog.model.Answer;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.jdbc.core.JdbcTemplate;

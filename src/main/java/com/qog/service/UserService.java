@@ -1,7 +1,7 @@
 package com.qog.service;
 
 import com.qog.util.Service;
-import model.User;
+import com.qog.model.User;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.jdbc.core.JdbcTemplate;

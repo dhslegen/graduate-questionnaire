@@ -4,7 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.qog.service.QuestionService;
 import com.qog.util.WebUtil;
-import model.Question;
+import com.qog.model.Question;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 

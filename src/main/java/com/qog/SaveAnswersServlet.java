@@ -6,7 +6,7 @@ import com.qog.service.AnswerService;
 import com.qog.service.QuestionService;
 import com.qog.service.SurveyService;
 import com.qog.util.WebUtil;
-import model.Answer;
+import com.qog.model.Answer;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 

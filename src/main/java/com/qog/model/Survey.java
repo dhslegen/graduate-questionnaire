@@ -1,4 +1,4 @@
-package model;
+package com.qog.model;
 
 import java.util.Date;
 import java.util.HashSet;

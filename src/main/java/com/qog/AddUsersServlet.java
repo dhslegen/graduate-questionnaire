@@ -4,7 +4,7 @@ import com.qog.service.UserService;
 import com.qog.util.WebUtil;
 import jxl.Sheet;
 import jxl.Workbook;
-import model.User;
+import com.qog.model.User;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
