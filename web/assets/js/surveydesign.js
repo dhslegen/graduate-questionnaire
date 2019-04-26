@@ -6,7 +6,7 @@ function auto_change_num() {
 $(function() {
 	// 表格自动生成
 	$('#surveydesign').datagrid({
-				url : '/QOG/surveydatagrid',
+				url : '/surveydatagrid',
 				fit : true,
 				fitColumns : true,
 				striped : true,
@@ -90,7 +90,7 @@ $(function() {
 							$(".css_survey_description h4").text(rows[0].description);
 							$("input[name='input_survey_id']").val(rows[0].id);
 							$.ajax({
-								url : '/QOG/getquestions',
+								url : '/getquestions',
 								type : 'post',
 								data : {
 									surveyid : $("input[name='input_survey_id']").val()

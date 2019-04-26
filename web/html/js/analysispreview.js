@@ -1,7 +1,7 @@
 ﻿$(function() {
 	var num = $("input[name='analysissurveyid']").val();
 	$.ajax({
-		url : '/QOG/getanalysis',
+		url : '/getanalysis',
 		type : 'post',
 		data : {
 			surveyid : num
@@ -451,7 +451,7 @@
 
 			});
 			$.ajax({
-						url : '/QOG/getoptions',
+						url : '/getoptions',
 						type : 'post',
 						data : {
 							surveyid : num
@@ -472,7 +472,7 @@
 						var count = $(this).closest("div.div_question").find("input").length;
 						$("#leader-select").val($(this).val());
 						$.ajax({
-									url : '/QOG/getsingleanalysis',
+									url : '/getsingleanalysis',
 									type : 'post',
 									data : {
 										surveyid : num,
@@ -554,7 +554,7 @@
 		}
 	});
 	$.ajax({
-				url : '/QOG/getsurvey',
+				url : '/getsurvey',
 				type : 'post',
 				data : {
 					id : num

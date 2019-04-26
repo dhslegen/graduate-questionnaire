@@ -2,7 +2,7 @@
 	var num = $("input[name='answersurveyid']").val();
 	var num1 = $("input[name='answeruserid']").val();
 	$.ajax({
-		url : '/QOG/getquestions',
+		url : '/getquestions',
 		type : 'post',
 		data : {
 			surveyid : num
@@ -216,7 +216,7 @@
 
 			});
 			$.ajax({
-				url : '/QOG/getanswers',
+				url : '/getanswers',
 				type : 'post',
 				data : {
 					surveyid : num,
@@ -250,7 +250,7 @@
 		}
 	});
 	$.ajax({
-				url : '/QOG/getsurvey',
+				url : '/getsurvey',
 				type : 'post',
 				data : {
 					id : num

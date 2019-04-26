@@ -6,7 +6,7 @@ function auto_change_num() {
 $(function() {
 	// 表格自动生成
 	$('#surveypublish').datagrid({
-				url : '/QOG/surveydatagrid',
+				url : '/surveydatagrid',
 				fit : true,
 				fitColumns : true,
 				striped : true,
@@ -88,7 +88,7 @@ $(function() {
 										// console.log(ids.join(','));
 										$.ajax({
 													type : 'POST',
-													url : '/QOG/checksurvey',
+													url : '/checksurvey',
 													data : {
 														target : "发布",
 														ids : '(' + ids.join(',') + ')'
@@ -130,7 +130,7 @@ $(function() {
 										// console.log(ids.join(','));
 										$.ajax({
 													type : 'POST',
-													url : '/QOG/checksurvey',
+													url : '/checksurvey',
 													data : {
 														target : "回收",
 														ids : '(' + ids.join(',') + ')'
@@ -170,7 +170,7 @@ $(function() {
 								// console.log(ids.join(','));
 								$.ajax({
 											type : 'POST',
-											url : '/QOG/checksurvey',
+											url : '/checksurvey',
 											data : {
 												target : "重置",
 												ids : '(' + ids.join(',') + ')'

@@ -1,7 +1,7 @@
 ﻿$(function() {
 
 	$.ajax({
-		url : '/QOG/checklogin',
+		url : '/checklogin',
 		type : 'post',
 		data : {
 			target : 'getname'
@@ -96,7 +96,7 @@
 		},
 
 		submitHandler : function(form) {
-			$.post("/QOG/checklogin", {
+			$.post("/checklogin", {
 						target : 'checkuser',
 						name : $('#login_name').val(),
 						password : $('#login_pwd').val()
@@ -115,7 +115,7 @@
 						}
 						$('#login').modal('hide');
 						$.ajax({
-							url : '/QOG/checklogin',
+							url : '/checklogin',
 							type : 'post',
 							data : {
 								target : 'getname'
@@ -171,7 +171,7 @@
 				maxlength : 10,
 				remote : { // 验证用户名是否存在
 					type : "POST",
-					url : "/QOG/checklogin", // servlet
+					url : "/checklogin", // servlet
 					data : {
 						target : 'checkothersamename',
 						name : function() {
@@ -239,7 +239,7 @@
 		submitHandler : function(form) {
 			var dialog;
 			$.ajax({
-				url : '/QOG/isuseralive',
+				url : '/isuseralive',
 				type : 'post',
 				data : {},
 				beforeSend : function() {
@@ -255,7 +255,7 @@
 					var result = eval("(" + result + ")");
 					if (result.statusCode == 1) {
 						dialog.modal('hide');
-						$.post("/QOG/checklogin", {
+						$.post("/checklogin", {
 									target : 'register',
 									name : $('#user_name').val(),
 									password : $('#user_pwd').val()
@@ -312,7 +312,7 @@
 });
 function logout() {
 	$.ajax({
-				url : '/QOG/checklogin',
+				url : '/checklogin',
 				type : 'post',
 				data : {
 					target : 'logout'

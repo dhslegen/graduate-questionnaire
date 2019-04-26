@@ -1,7 +1,7 @@
 $(function() {
 			// 表格自动生成
 			$('#answer').datagrid({
-						url : '/QOG/answerdatagrid',
+						url : '/answerdatagrid',
 						fit : true,
 						fitColumns : true,
 						striped : true,
@@ -64,7 +64,7 @@ $(function() {
 										// console.log(ids.join(','));
 										$.ajax({
 													type : 'POST',
-													url : '/QOG/deleteanswer',
+													url : '/deleteanswer',
 													data : {
 														ids : ids.join("|")
 													},

@@ -15,7 +15,7 @@ $(function() {
 					});
 			// 表格自动生成
 			$('#user').datagrid({
-						url : '/QOG/userdatagrid',
+						url : '/userdatagrid',
 						fit : true,
 						fitColumns : true,
 						striped : true,
@@ -85,7 +85,7 @@ $(function() {
 									handler : function() {
 										if ($('#user_add').form('validate')) {
 											$.ajax({
-														url : '/QOG/adduser',
+														url : '/adduser',
 														type : 'post',
 														data : {
 															studentid : $('input[name="studentid_add"]').val(),
@@ -149,7 +149,7 @@ $(function() {
 														.append("excel", $('input[name="user_import"]').get(0).files[0]);
 											}
 											$.ajax({
-														url : '/QOG/addusers',
+														url : '/addusers',
 														type : 'post',
 														data : formData,
 														cache : false,
@@ -196,7 +196,7 @@ $(function() {
 												formData.append("image", $('input[name="cover_edit"]').get(0).files[0]);
 											}
 											$.ajax({
-														url : '/QOG/edituser',
+														url : '/edituser',
 														type : 'post',
 														data : {
 															id : $('input[name="user_id_edit"]').val(),
@@ -310,7 +310,7 @@ $(function() {
 					});
 			// 分配权限
 			$('#auth_add').combotree({
-						url : '/QOG/nav',
+						url : '/nav',
 						required : false,
 						lines : true,
 						multiple : true,
@@ -363,7 +363,7 @@ $(function() {
 										// console.log(ids.join(','));
 										$.ajax({
 													type : 'POST',
-													url : '/QOG/deleteuser',
+													url : '/deleteuser',
 													data : {
 														ids : '(' + ids.join(',') + ')'
 													},
@@ -394,7 +394,7 @@ $(function() {
 						$.messager.alert('警告操作！', '编辑记录只能选定一条数据！', 'warning');
 					} else if (rows.length == 1) {
 						$.ajax({
-									url : '/QOG/getuser',
+									url : '/getuser',
 									type : 'post',
 									data : {
 										id : rows[0].id
@@ -423,7 +423,7 @@ $(function() {
 													}).dialog('open');
 											// 分配权限
 											$('#auth_edit').combotree({
-														url : '/QOG/nav',
+														url : '/nav',
 														required : false,
 														lines : true,
 														multiple : true,

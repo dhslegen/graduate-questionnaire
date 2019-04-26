@@ -1,7 +1,7 @@
 $(function() {
 			// 表格自动生成
 			$('#analysis').datagrid({
-						url : '/QOG/surveydatagrid',
+						url : '/surveydatagrid',
 						fit : true,
 						fitColumns : true,
 						striped : true,

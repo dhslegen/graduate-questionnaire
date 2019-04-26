@@ -2,7 +2,7 @@
 	var sSource = String(window.document.location);
 	var num = sSource.substr(sSource.indexOf('?') + 1, sSource.length - sSource.indexOf('?') - 1);
 	$.ajax({
-		url : '/QOG/checksurvey',
+		url : '/checksurvey',
 		type : 'post',
 		data : {
 			target : "检查发布",
@@ -13,7 +13,7 @@
 			if (result.statusCode == 1) {
 
 				$.ajax({
-							url : '/QOG/getsurvey',
+							url : '/getsurvey',
 							type : 'post',
 							data : {
 								id : num
@@ -26,7 +26,7 @@
 							}
 						});
 				$.ajax({
-					url : '/QOG/getquestions',
+					url : '/getquestions',
 					type : 'post',
 					data : {
 						surveyid : num
@@ -348,7 +348,7 @@
 					});
 					if (flg) {
 						$.ajax({
-							url : '/QOG/checksurvey',
+							url : '/checksurvey',
 							type : 'post',
 							data : {
 								target : "检查发布",
@@ -360,7 +360,7 @@
 
 									var dialog;
 									$.ajax({
-										url : '/QOG/isuseralive',
+										url : '/isuseralive',
 										type : 'post',
 										data : {},
 										beforeSend : function() {
@@ -426,7 +426,7 @@
 													}
 												});
 												$.ajax({
-													url : '/QOG/saveanswers',
+													url : '/saveanswers',
 													type : 'post',
 													data : {
 														answers : JSON.stringify(answers)

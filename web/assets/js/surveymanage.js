@@ -6,7 +6,7 @@ function auto_change_num() {
 $(function() {
 	// 表格自动生成
 	$('#survey').datagrid({
-				url : '/QOG/surveydatagrid',
+				url : '/surveydatagrid',
 				fit : true,
 				fitColumns : true,
 				striped : true,
@@ -194,7 +194,7 @@ $(function() {
 												});
 												formData.append("questions", JSON.stringify(questions));
 												$.ajax({
-													url : '/QOG/addsurvey',
+													url : '/addsurvey',
 													type : 'post',
 													data : formData,
 													cache : false,
@@ -285,7 +285,7 @@ $(function() {
 								$(".css_survey_title h1").text(title);
 								$(".css_survey_description h4").text(description);
 								$.ajax({
-									url : '/QOG/getquestions',
+									url : '/getquestions',
 									type : 'post',
 									data : {
 										surveyid : surveyid
@@ -1015,7 +1015,7 @@ $(function() {
 												});
 												formData.append("questions", JSON.stringify(questions));
 												$.ajax({
-													url : '/QOG/editsurvey',
+													url : '/editsurvey',
 													type : 'post',
 													data : formData,
 													cache : false,
@@ -1125,7 +1125,7 @@ $(function() {
 								// console.log(ids.join(','));
 								$.ajax({
 											type : 'POST',
-											url : '/QOG/deletesurvey',
+											url : '/deletesurvey',
 											data : {
 												ids : '(' + ids.join(',') + ')'
 											},
@@ -1184,7 +1184,7 @@ $(function() {
 					$.messager.alert('警告操作！', rows[0].publish + '的问卷不可修改！', 'warning');
 				} else {
 					$.ajax({
-								url : '/QOG/getsurvey',
+								url : '/getsurvey',
 								type : 'post',
 								data : {
 									id : rows[0].id

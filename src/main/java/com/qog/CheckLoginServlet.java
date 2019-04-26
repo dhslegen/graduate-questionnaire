@@ -40,7 +40,7 @@ public class CheckLoginServlet extends HttpServlet {
         if ("logout".equals(target)) {
 
             request.getSession().invalidate();
-            response.sendRedirect("/QOG/html/login.html");
+            response.sendRedirect("/html/login.html");
 
         }
     }

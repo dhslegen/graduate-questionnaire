@@ -4,9 +4,9 @@
 	var nums = number.split("&");
 	var num = nums[0];
 	var num1 = nums[1];
-	$("#download").attr('href', '/QOG/downloadanswersheet?surveyid=' + num + '&userid=' + num1);
+	$("#download").attr('href', '/downloadanswersheet?surveyid=' + num + '&userid=' + num1);
 	$.ajax({
-		url : '/QOG/getquestions',
+		url : '/getquestions',
 		type : 'post',
 		data : {
 			surveyid : num
@@ -222,7 +222,7 @@
 
 			});
 			$.ajax({
-				url : '/QOG/getanswers',
+				url : '/getanswers',
 				type : 'post',
 				data : {
 					surveyid : num,
@@ -256,7 +256,7 @@
 		}
 	});
 	$.ajax({
-				url : '/QOG/getsurvey',
+				url : '/getsurvey',
 				type : 'post',
 				data : {
 					id : num

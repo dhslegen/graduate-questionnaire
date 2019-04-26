@@ -1,6 +1,6 @@
 $(function() {
 	$('#nav').tree({
-		url: '/QOG/navmade',
+		url: '/navmade',
 		lines: true,
 		onLoadSuccess: function(node, data) {
 			if (data) {
@@ -33,7 +33,7 @@ $(function() {
 		border: false,
 	});
 	$.ajax({
-		url: '/QOG/checklogin',
+		url: '/checklogin',
 		type: 'post',
 		data: {
 			target: 'getname',

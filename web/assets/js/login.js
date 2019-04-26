@@ -41,7 +41,7 @@ $(function () {
 			$('#password').focus();
 		} else {
 			$.ajax({
-				url : '/QOG/checklogin',
+				url : '/checklogin',
 				type : 'post',
 				data : {
 				    target:'checkuser',
@@ -57,7 +57,7 @@ $(function () {
 					$.messager.progress('close');
 					  var result = eval("("+ data +")");
 					  if (result.statusCode== 1) {
-						  if(location.pathname=='/QOG/html/login.html')
+						  if(location.pathname=='/html/login.html')
 						  {
 							  location.href = 'backstage.html';}
 						  else{ 
