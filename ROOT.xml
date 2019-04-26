@@ -7,7 +7,7 @@
             maxIdle="30"
             maxWait="10000"
             username="root"
-            password="MySql@123456"
-            driverClassName="com.mysql.cj.jdbc.Driver"
-            url="jdbc:mysql://localhost:3306/qog?serverTimezone=GMT%2B8"/>
-</Context> 
+            password="MySQL@123456"
+            driverClassName="com.mysql.jdbc.Driver"
+            url="jdbc:mysql://localhost:3306/qog?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=GMT%2B8"/>
+</Context>
