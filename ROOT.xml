@@ -1,0 +1,13 @@
+<Context>
+    <Resource
+            name="jdbc/QOG"
+            auth="Container"
+            type="javax.sql.DataSource"
+            maxActive="100"
+            maxIdle="30"
+            maxWait="10000"
+            username="root"
+            password="MySql@123456"
+            driverClassName="com.mysql.cj.jdbc.Driver"
+            url="jdbc:mysql://localhost:3306/qog?serverTimezone=GMT%2B8"/>
+</Context> 
