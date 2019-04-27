@@ -7,32 +7,32 @@
 		},
 		success : function(result, response, status) {
 			var showHtml = '	<div class="col-md-6 col">' + '<div class="media">' + '<div class="media-left">'
-					+ '<a href="#" target=\'_blank\'><img style="height:100px;width:150px" src="../cover/default.jpg"'
+					+ '<a href="#" target=\'_blank\'><img style="height:100px;width:150px" src="/cover/default.jpg"'
 					+ 'class="media-object" alt=""></a>' + '</div>' + '<div class="media-body">'
 					+ '<h4 class="media-heading">问卷标题</h4>' + '<p class="description">问卷描述</p>' + '</div>' + '</div>'
 					+ '</div>';
 			var result = eval("(" + result + ")");
 			$.each(result.data, function(index, item) {
 				if (index == 0) {
-					$("#myCarousel").find("img[name='first']").attr("src", "../cover/" + item.image).parent().attr(
-							"href", "test.html?" + item.id);
+					$("#myCarousel").find("img[name='first']").attr("src", "/cover/" + item.image).parent().attr(
+							"href", "/html/test.html?" + item.id);
 					$("#myCarousel").find(".titlelunbo0").text(item.title);
 				}
 				if (index == 1) {
-					$("#myCarousel").find("img[name='second']").attr("src", "../cover/" + item.image).parent().attr(
-							"href", "test.html?" + item.id);;
+					$("#myCarousel").find("img[name='second']").attr("src", "/cover/" + item.image).parent().attr(
+							"href", "/html/test.html?" + item.id);;
 					$("#myCarousel").find(".titlelunbo1").text(item.title);
 				}
 				if (index == 2) {
-					$("#myCarousel").find("img[name='third']").attr("src", "../cover/" + item.image).parent().attr(
-							"href", "test.html?" + item.id);
+					$("#myCarousel").find("img[name='third']").attr("src", "/cover/" + item.image).parent().attr(
+							"href", "/html/test.html?" + item.id);
 					$("#myCarousel").find(".titlelunbo2").text(item.title);
 				}
 				$(showHtml).appendTo("div.survey_hot_row");
 				$("div.survey_hot_row").children("div.col-md-6").eq(index).find("a").attr("href",
-						"test.html?" + item.id);
+						"/html/test.html?" + item.id);
 				$("div.survey_hot_row").children("div.col-md-6").eq(index).find("img").attr("src",
-						"../cover/" + item.image);
+						"/cover/" + item.image);
 				$("div.survey_hot_row").children("div.col-md-6").eq(index).find("h4").text(item.title);
 				$("div.survey_hot_row").children("div.col-md-6").eq(index).find("p.description").text(item.description);
 			});
@@ -46,7 +46,7 @@
 		},
 		success : function(result, response, status) {
 			var showHtml = '	<div class="col-md-6 col">' + '<div class="media">' + '<div class="media-left">'
-					+ '<a href="#" target=\'_blank\'><img style="height:100px;width:150px" src="../cover/default.jpg"'
+					+ '<a href="#" target=\'_blank\'><img style="height:100px;width:150px" src="/cover/default.jpg"'
 					+ 'class="media-object" alt=""></a>' + '</div>' + '<div class="media-body">'
 					+ '<h4 class="media-heading">问卷标题</h4>' + '<p class="description">问卷描述</p>' + '</div>' + '</div>'
 					+ '</div>';
@@ -54,9 +54,9 @@
 			$.each(result.data, function(index, item) {
 				$(showHtml).appendTo("div.survey_new_row");
 				$("div.survey_new_row").children("div.col-md-6").eq(index).find("a").attr("href",
-						"test.html?" + item.id);
+						"/html/test.html?" + item.id);
 				$("div.survey_new_row").children("div.col-md-6").eq(index).find("img").attr("src",
-						"../cover/" + item.image);
+						"/cover/" + item.image);
 				$("div.survey_new_row").children("div.col-md-6").eq(index).find("h4").text(item.title);
 				$("div.survey_new_row").children("div.col-md-6").eq(index).find("p.description").text(item.description);
 			});
