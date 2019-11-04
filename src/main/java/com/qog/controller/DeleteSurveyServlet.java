@@ -1,6 +1,6 @@
-package com.qog;
+package com.qog.controller;
 
-import com.qog.service.NavService;
+import com.qog.service.SurveyService;
 import com.qog.util.WebUtil;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
@@ -10,20 +10,19 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-public class NavMadeServlet extends HttpServlet {
-	private NavService navService;
+public class DeleteSurveyServlet extends HttpServlet {
+	private SurveyService surveyService;
 
-	public NavMadeServlet() {
+	public DeleteSurveyServlet() {
 	}
 
 	public void init(ServletConfig config) throws ServletException {
 
 		WebApplicationContext ctx = WebApplicationContextUtils.getWebApplicationContext(config
 				.getServletContext());
-		navService = (NavService) ctx.getBean("navService");
+		surveyService = (SurveyService) ctx.getBean("surveyService");
 	}
 
 	public void destroy() {
@@ -33,22 +32,17 @@ public class NavMadeServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("信息：方法【NavMadeServletdoGet】开始！");
+		System.out.println("信息：方法【SurveyDataGridServletdoGet】开始！");
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("信息：方法【NavMadeServletdoPost】开始！");
-		String id = WebUtil.getParam(request, "id", null);
-		System.out.println("收的的数据：" + id);
-		HttpSession session = request.getSession();
-		String auth = session.getAttribute("auth").toString();
-		if (id != null && id.length() > 0) {
+		System.out.println("信息：方法【SurveyDataGridServletdoPost】开始！");
 
-			WebUtil.respondStrict(request, response, navService.findNodeByNidAndAuth(id, auth));
-
-		} else {
-			WebUtil.respondStrict(request, response, navService.findNodeByAuth(auth));
-		}
+		String ids = WebUtil.getParam(request, "ids", null);
+		System.out.println(ids);
+		int a = surveyService.deleteById(ids);
+		System.out.println(a);
+		WebUtil.respondStrict(request, response, a);
 	}
 }

@@ -1,7 +1,10 @@
-package com.qog;
+package com.qog.controller;
 
-import com.qog.service.AnswerService;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.qog.service.QuestionService;
 import com.qog.util.WebUtil;
+import com.qog.model.Question;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
@@ -10,19 +13,19 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.List;
 
-public class GetAnswerSheetServlet extends HttpServlet {
-	private AnswerService answerService;
+public class SaveQuestionsServlet extends HttpServlet {
+	private QuestionService questionService;
 
-	public GetAnswerSheetServlet() {
+	public SaveQuestionsServlet() {
 	}
 
 	public void init(ServletConfig config) throws ServletException {
 
 		WebApplicationContext ctx = WebApplicationContextUtils.getWebApplicationContext(config.getServletContext());
-		answerService = (AnswerService) ctx.getBean("answerService");
+		questionService = (QuestionService) ctx.getBean("questionService");
 	}
 
 	public void destroy() {
@@ -31,14 +34,18 @@ public class GetAnswerSheetServlet extends HttpServlet {
 	}
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("信息：方法【GetAnswerSheetServletdoGet】开始！");
+		System.out.println("信息：方法【SaveQuestionServletdoGet】开始！");
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("信息：方法【GetAnswerSheetServletdopost】开始！");
+		System.out.println("信息：方法【SaveQuestionServletdoPost】开始！");
 
-		HttpSession session = request.getSession();
-		int userid = (int) session.getAttribute("id");
-		WebUtil.respondStrict(request, response, answerService.getAnswerByUserId(userid));
+		String savestring = WebUtil.getParam(request, "questions", null);
+		System.out.println(savestring);
+
+		Gson gson = new Gson();
+		List<Question> retList = gson.fromJson(savestring, new TypeToken<List<Question>>() {
+		}.getType());
+
 	}
 }

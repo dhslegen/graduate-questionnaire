@@ -1,4 +1,4 @@
-package com.qog;
+package com.qog.controller;
 
 import com.qog.service.AnswerService;
 import com.qog.util.WebUtil;

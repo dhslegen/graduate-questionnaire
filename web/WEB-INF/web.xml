@@ -17,7 +17,7 @@
 
     <filter>
         <filter-name>AuthorizationFilter</filter-name>
-        <filter-class>com.qog.AuthorizeFilter</filter-class>
+        <filter-class>com.qog.controller.AuthorizeFilter</filter-class>
         <init-param>
             <param-name>encoding</param-name>
             <param-value>UTF-8</param-value>
@@ -49,7 +49,7 @@
 
     <servlet>
         <servlet-name>CheckLoginServlet</servlet-name>
-        <servlet-class>com.qog.CheckLoginServlet</servlet-class>
+        <servlet-class>com.qog.controller.CheckLoginServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>CheckLoginServlet</servlet-name>
@@ -58,7 +58,7 @@
 
     <servlet>
         <servlet-name>IsUserAliveServlet</servlet-name>
-        <servlet-class>com.qog.IsUserAliveServlet</servlet-class>
+        <servlet-class>com.qog.controller.IsUserAliveServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>IsUserAliveServlet</servlet-name>
@@ -67,7 +67,7 @@
 
     <servlet>
         <servlet-name>NavMadeServlet</servlet-name>
-        <servlet-class>com.qog.NavMadeServlet</servlet-class>
+        <servlet-class>com.qog.controller.NavMadeServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>NavMadeServlet</servlet-name>
@@ -76,7 +76,7 @@
 
     <servlet>
         <servlet-name>NavServlet</servlet-name>
-        <servlet-class>com.qog.NavServlet</servlet-class>
+        <servlet-class>com.qog.controller.NavServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>NavServlet</servlet-name>
@@ -85,7 +85,7 @@
 
     <servlet>
         <servlet-name>SurveyDataGridServlet</servlet-name>
-        <servlet-class>com.qog.SurveyDataGridServlet</servlet-class>
+        <servlet-class>com.qog.controller.SurveyDataGridServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>SurveyDataGridServlet</servlet-name>
@@ -94,7 +94,7 @@
 
     <servlet>
         <servlet-name>UserDataGridServlet</servlet-name>
-        <servlet-class>com.qog.UserDataGridServlet</servlet-class>
+        <servlet-class>com.qog.controller.UserDataGridServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>UserDataGridServlet</servlet-name>
@@ -103,7 +103,7 @@
 
     <servlet>
         <servlet-name>AnswerDataGridServlet</servlet-name>
-        <servlet-class>com.qog.AnswerDataGridServlet</servlet-class>
+        <servlet-class>com.qog.controller.AnswerDataGridServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AnswerDataGridServlet</servlet-name>
@@ -112,7 +112,7 @@
 
     <servlet>
         <servlet-name>AddSurveyServlet</servlet-name>
-        <servlet-class>com.qog.AddSurveyServlet</servlet-class>
+        <servlet-class>com.qog.controller.AddSurveyServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AddSurveyServlet</servlet-name>
@@ -121,7 +121,7 @@
 
     <servlet>
         <servlet-name>DeleteSurveyServlet</servlet-name>
-        <servlet-class>com.qog.DeleteSurveyServlet</servlet-class>
+        <servlet-class>com.qog.controller.DeleteSurveyServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>DeleteSurveyServlet</servlet-name>
@@ -130,7 +130,7 @@
 
     <servlet>
         <servlet-name>DeleteAnswerServlet</servlet-name>
-        <servlet-class>com.qog.DeleteAnswerServlet</servlet-class>
+        <servlet-class>com.qog.controller.DeleteAnswerServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>DeleteAnswerServlet</servlet-name>
@@ -139,7 +139,7 @@
 
     <servlet>
         <servlet-name>CheckSurveyServlet</servlet-name>
-        <servlet-class>com.qog.CheckSurveyServlet</servlet-class>
+        <servlet-class>com.qog.controller.CheckSurveyServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>CheckSurveyServlet</servlet-name>
@@ -148,7 +148,7 @@
 
     <servlet>
         <servlet-name>DeleteUserServlet</servlet-name>
-        <servlet-class>com.qog.DeleteUserServlet</servlet-class>
+        <servlet-class>com.qog.controller.DeleteUserServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>DeleteUserServlet</servlet-name>
@@ -157,7 +157,7 @@
 
     <servlet>
         <servlet-name>EditSurveyServlet</servlet-name>
-        <servlet-class>com.qog.EditSurveyServlet</servlet-class>
+        <servlet-class>com.qog.controller.EditSurveyServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>EditSurveyServlet</servlet-name>
@@ -166,7 +166,7 @@
 
     <servlet>
         <servlet-name>EditUserServlet</servlet-name>
-        <servlet-class>com.qog.EditUserServlet</servlet-class>
+        <servlet-class>com.qog.controller.EditUserServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>EditUserServlet</servlet-name>
@@ -175,7 +175,7 @@
 
     <servlet>
         <servlet-name>GetSurveyServlet</servlet-name>
-        <servlet-class>com.qog.GetSurveyServlet</servlet-class>
+        <servlet-class>com.qog.controller.GetSurveyServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>GetSurveyServlet</servlet-name>
@@ -184,7 +184,7 @@
 
     <servlet>
         <servlet-name>GetAnalysisServlet</servlet-name>
-        <servlet-class>com.qog.GetAnalysisServlet</servlet-class>
+        <servlet-class>com.qog.controller.GetAnalysisServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>GetAnalysisServlet</servlet-name>
@@ -193,7 +193,7 @@
 
     <servlet>
         <servlet-name>GetSingleAnalysisServlet</servlet-name>
-        <servlet-class>com.qog.GetSingleAnalysisServlet</servlet-class>
+        <servlet-class>com.qog.controller.GetSingleAnalysisServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>GetSingleAnalysisServlet</servlet-name>
@@ -202,7 +202,7 @@
 
     <servlet>
         <servlet-name>GetAnswersServlet</servlet-name>
-        <servlet-class>com.qog.GetAnswersServlet</servlet-class>
+        <servlet-class>com.qog.controller.GetAnswersServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>GetAnswersServlet</servlet-name>
@@ -211,7 +211,7 @@
 
     <servlet>
         <servlet-name>GetAnswerSheetServlet</servlet-name>
-        <servlet-class>com.qog.GetAnswerSheetServlet</servlet-class>
+        <servlet-class>com.qog.controller.GetAnswerSheetServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>GetAnswerSheetServlet</servlet-name>
@@ -220,7 +220,7 @@
 
     <servlet>
         <servlet-name>DownLoadAnswerSheetServlet</servlet-name>
-        <servlet-class>com.qog.DownLoadAnswerSheetServlet</servlet-class>
+        <servlet-class>com.qog.controller.DownLoadAnswerSheetServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>DownLoadAnswerSheetServlet</servlet-name>
@@ -229,7 +229,7 @@
 
     <servlet>
         <servlet-name>GetSurveyForIndexServlet</servlet-name>
-        <servlet-class>com.qog.GetSurveyForIndexServlet</servlet-class>
+        <servlet-class>com.qog.controller.GetSurveyForIndexServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>GetSurveyForIndexServlet</servlet-name>
@@ -238,7 +238,7 @@
 
     <servlet>
         <servlet-name>GetUserServlet</servlet-name>
-        <servlet-class>com.qog.GetUserServlet</servlet-class>
+        <servlet-class>com.qog.controller.GetUserServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>GetUserServlet</servlet-name>
@@ -247,7 +247,7 @@
 
     <servlet>
         <servlet-name>GetOptionsServlet</servlet-name>
-        <servlet-class>com.qog.GetOptionsServlet</servlet-class>
+        <servlet-class>com.qog.controller.GetOptionsServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>GetOptionsServlet</servlet-name>
@@ -256,7 +256,7 @@
 
     <servlet>
         <servlet-name>GetQuestionsServlet</servlet-name>
-        <servlet-class>com.qog.GetQuestionsServlet</servlet-class>
+        <servlet-class>com.qog.controller.GetQuestionsServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>GetQuestionsServlet</servlet-name>
@@ -265,7 +265,7 @@
 
     <servlet>
         <servlet-name>AddUserServlet</servlet-name>
-        <servlet-class>com.qog.AddUserServlet</servlet-class>
+        <servlet-class>com.qog.controller.AddUserServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AddUserServlet</servlet-name>
@@ -274,7 +274,7 @@
 
     <servlet>
         <servlet-name>AddUsersServlet</servlet-name>
-        <servlet-class>com.qog.AddUsersServlet</servlet-class>
+        <servlet-class>com.qog.controller.AddUsersServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AddUsersServlet</servlet-name>
@@ -283,7 +283,7 @@
 
     <servlet>
         <servlet-name>SaveQuestionsServlet</servlet-name>
-        <servlet-class>com.qog.SaveQuestionsServlet</servlet-class>
+        <servlet-class>com.qog.controller.SaveQuestionsServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>SaveQuestionsServlet</servlet-name>
@@ -292,7 +292,7 @@
 
     <servlet>
         <servlet-name>SaveAnswersServlet</servlet-name>
-        <servlet-class>com.qog.SaveAnswersServlet</servlet-class>
+        <servlet-class>com.qog.controller.SaveAnswersServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>SaveAnswersServlet</servlet-name>

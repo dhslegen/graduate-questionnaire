@@ -1,6 +1,7 @@
-package com.qog;
+package com.qog.controller;
 
-import com.qog.service.QuestionService;
+import com.qog.service.UserService;
+import com.qog.util.Constant;
 import com.qog.util.WebUtil;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
@@ -10,18 +11,19 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-public class GetAnalysisServlet extends HttpServlet {
-	private QuestionService questionService;
+public class IsUserAliveServlet extends HttpServlet {
+	private UserService userService;
 
-	public GetAnalysisServlet() {
+	public IsUserAliveServlet() {
 	}
 
 	public void init(ServletConfig config) throws ServletException {
 
 		WebApplicationContext ctx = WebApplicationContextUtils.getWebApplicationContext(config.getServletContext());
-		questionService = (QuestionService) ctx.getBean("questionService");
+		userService = (UserService) ctx.getBean("userService");
 	}
 
 	public void destroy() {
@@ -30,15 +32,19 @@ public class GetAnalysisServlet extends HttpServlet {
 	}
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("信息：方法【GetAnalysisServletdoGet】开始！");
+		System.out.println("信息：方法【CheckLoginServletdoGet】开始！");
+
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("信息：方法【GetAnalysisServletdoPost】开始！");
-
-		String surveyId = WebUtil.getParam(request, "surveyid", null);
-		System.out.println(surveyId);
-		int surveyid = Integer.valueOf(surveyId);
-		WebUtil.respond(request, response, questionService.getAnalysisBySurveyId(surveyid));
+		System.out.println("信息：方法【isuserServletdoPost】开始！");
+		HttpSession session = request.getSession();
+		if (session.getAttribute("user") == null) {
+			System.out.println(session.getAttribute("user"));
+			WebUtil.respond(request, response, Constant.STATUS_CODE_FAILURE);
+		} else {
+			System.out.println(session.getAttribute("user"));
+			WebUtil.respond(request, response, Constant.STATUS_CODE_SUCCESS);
+		}
 	}
 }

@@ -1,4 +1,4 @@
-package com.qog;
+package com.qog.controller;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;

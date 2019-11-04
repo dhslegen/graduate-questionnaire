@@ -1,4 +1,4 @@
-package com.qog;
+package com.qog.controller;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

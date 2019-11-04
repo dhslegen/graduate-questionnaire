@@ -1,4 +1,4 @@
-package com.qog;
+package com.qog.controller;
 
 import com.qog.service.SurveyService;
 import com.qog.util.WebUtil;
@@ -12,10 +12,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class DeleteSurveyServlet extends HttpServlet {
+public class GetSurveyServlet extends HttpServlet {
 	private SurveyService surveyService;
 
-	public DeleteSurveyServlet() {
+	public GetSurveyServlet() {
 	}
 
 	public void init(ServletConfig config) throws ServletException {
@@ -32,17 +32,15 @@ public class DeleteSurveyServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("信息：方法【SurveyDataGridServletdoGet】开始！");
+		System.out.println("信息：方法【GetSurveyServletdoGet】开始！");
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("信息：方法【SurveyDataGridServletdoPost】开始！");
+		System.out.println("信息：方法【GetSurveyServletdoPost】开始！");
 
-		String ids = WebUtil.getParam(request, "ids", null);
-		System.out.println(ids);
-		int a = surveyService.deleteById(ids);
-		System.out.println(a);
-		WebUtil.respondStrict(request, response, a);
+		String surveyId = WebUtil.getParam(request, "id", null);
+		System.out.println(surveyId);
+		WebUtil.respondStrict(request, response, surveyService.getSurveyById(surveyId));
 	}
 }
