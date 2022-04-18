@@ -19,3 +19,37 @@
 - [Java](https://www.java.com)
 - [Bootstrap](https://getbootstrap.com)
 - [EasyUI](https://www.jeasyui.com)
+
+## 安装
+
+- 克隆项目
+```shell
+git clone https://github.com/dhslegen/graduate-questionnaire
+```
+
+- 执行数据库脚本
+<img width="640" alt="image" src="https://user-images.githubusercontent.com/37139487/163772049-14426291-6404-421f-a84a-e3bc5a7f5bcb.png">
+
+- 修改数据源配置
+<img width="1390" alt="image" src="https://user-images.githubusercontent.com/37139487/163769336-e04cbd59-8a65-4533-9e56-29c930adb23d.png">
+
+- Maven打包
+```shell
+ set JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_251.jdk/Contents/Home
+ mvn package
+```
+- 部署到tomcat
+<img width="668" alt="image" src="https://user-images.githubusercontent.com/37139487/163771706-1778158a-cddf-48f9-a221-f2cf09fcbcdb.png">
+
+- 启动tomcat
+```
+./bin/startup.sh
+```
+
+- 打开首页
+
+http://localhost:8080
+
+<img width="1916" alt="image" src="https://user-images.githubusercontent.com/37139487/163775714-ee45e8a5-945f-4ba1-82a7-ba89d7853030.png">
+
+
