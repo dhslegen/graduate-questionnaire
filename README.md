@@ -16,6 +16,6 @@
 <img width="1919" alt="image" src="https://user-images.githubusercontent.com/37139487/163764937-06ef8c9f-15f1-4d40-aeb5-6b378b4ab0dc.png">
 
 ## 技术栈
-[Java](https://www.java.com)
-[Bootstrap](https://getbootstrap.com)
-[EasyUI](https://www.jeasyui.com)
+- [Java](https://www.java.com)
+- [Bootstrap](https://getbootstrap.com)
+- [EasyUI](https://www.jeasyui.com)
