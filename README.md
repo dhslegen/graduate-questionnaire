@@ -22,6 +22,6 @@
 
 ## 安装
 
-```
+```sh
 git clone https://github.com/dhslegen/graduate-questionnaire
 ```
