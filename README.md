@@ -19,3 +19,9 @@
 - [Java](https://www.java.com)
 - [Bootstrap](https://getbootstrap.com)
 - [EasyUI](https://www.jeasyui.com)
+
+## 安装
+
+```
+git clone https://github.com/dhslegen/graduate-questionnaire
+```
