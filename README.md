@@ -48,3 +48,8 @@ git clone https://github.com/dhslegen/graduate-questionnaire
 
 - 打开首页
 
+http://localhost:8080
+
+<img width="1916" alt="image" src="https://user-images.githubusercontent.com/37139487/163775714-ee45e8a5-945f-4ba1-82a7-ba89d7853030.png">
+
+
