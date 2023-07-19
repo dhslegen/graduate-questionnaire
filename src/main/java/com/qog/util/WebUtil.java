@@ -11,15 +11,15 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Type;
 import java.net.URLEncoder;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class WebUtil {
     private static final Log logger = LogFactory.getLog(WebUtil.class);
-    public static final Gson GSON = new GsonBuilder().serializeNulls().registerTypeAdapter(Date.class, new DateSerializer()).create();
+    public static final Gson GSON = new GsonBuilder().serializeNulls().registerTypeAdapter(LocalDateTime.class, new LocalDateTimeSerializer()).create();
 
     public static String getParam(HttpServletRequest request, String name, String defaultValue) {
         String v = request.getParameter(name);
@@ -183,15 +183,15 @@ public class WebUtil {
         }
     }
 
-    static class DateSerializer implements JsonSerializer<Date> {
-        private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    static class LocalDateTimeSerializer implements JsonSerializer<LocalDateTime> {
+        private static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
         @Override
-        public JsonElement serialize(Date date, Type type, JsonSerializationContext jsonSerializationContext) {
-            if (date == null) {
+        public JsonElement serialize(LocalDateTime localDateTime, Type type, JsonSerializationContext jsonSerializationContext) {
+            if (localDateTime == null) {
                 return JsonNull.INSTANCE;
             }
-            return jsonSerializationContext.serialize(DATE_FORMAT.format(date));
+            return jsonSerializationContext.serialize(DATE_TIME_FORMATTER.format(localDateTime));
         }
     }
 
