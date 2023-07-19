@@ -19,7 +19,7 @@
         <filter-name>AuthorizationFilter</filter-name>
         <filter-class>com.qog.controller.AuthorizeFilter</filter-class>
         <init-param>
-            <param-name>encoding</param-name>
+            <param-name>fileEncoding</param-name>
             <param-value>UTF-8</param-value>
         </init-param>
         <init-param>
